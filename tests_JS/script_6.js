@@ -83,6 +83,7 @@ console.log(result4)
 console.log("Supprime le livre avec l'ID: 133712")
 books.pop( book => book.id == 133712)
 
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Trie les livres par ordre alphabétique (sans celui avec l'ID 133712 car il est supprimé).
 console.log("Trie les livres par ordre alphabétique (sans celui avec l'ID 133712 car il est supprimé)")
