@@ -14,6 +14,7 @@ const books = [
 ];
 
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Est-ce que tous les livres ont été au moins empruntés une fois ?
 console.log("Est-ce que tous les livres ont été au moins empruntés une fois ?")
 
@@ -31,7 +32,7 @@ let result1 = untouchedBookDetector(books)
 console.log(result1)
 
 
-
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Quel est le livre le plus emprunté ?
 console.log("Quel est le livre le plus emprunté ?")
 
@@ -48,7 +49,7 @@ let result2 = mostRentedBook(books)
 console.log(result2);
 
 
-
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Quel est le livre le moins emprunté ?
 console.log("Quel est le livre le moins emprunté ?")
 
@@ -65,7 +66,7 @@ let result3 = leastRentedBook(books)
 console.log(result3)
 
 
-
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Trouve le livre avec l'ID: 873495 ;
 console.log("Trouve le livre avec l'ID: 873495")
 
@@ -76,7 +77,31 @@ function findBookWithID(bookList, numID){
 let result4 = findBookWithID(books, 873495)
 console.log(result4)
 
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Supprime le livre avec l'ID: 133712 ;
+console.log("Supprime le livre avec l'ID: 133712")
+books.pop( book => book.id == 133712)
 
-
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Trie les livres par ordre alphabétique (sans celui avec l'ID 133712 car il est supprimé).
+console.log("Trie les livres par ordre alphabétique (sans celui avec l'ID 133712 car il est supprimé)")
+function sortBooksByTitle(listOfBooks){
+    return listOfBooks.sort(function(a, b) {
+        var nameA = a.title.toUpperCase(); // ignore upper and lowercase
+        var nameB = b.title.toUpperCase(); // ignore upper and lowercase
+        if (nameA < nameB) {
+            return -1;
+        }
+        if (nameA > nameB) {
+            return 1;
+        }
+        // names must be equal
+        return 0;
+    });
+}
+
+let result5 = sortBooksByTitle(books)
+console.log(result5)
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
