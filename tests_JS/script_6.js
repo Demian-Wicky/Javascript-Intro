@@ -1,5 +1,5 @@
 const books = [
-    { title: 'Gatsby le magnifique', id: 133712, rented: 0 },
+    { title: 'Gatsby le magnifique', id: 133712, rented: 39 },
     { title: 'A la recherche du temps perdu', id: 237634, rented: 28 },
     { title: 'Orgueil & Préjugés', id: 873495, rented: 67 },
     { title: 'Les frères Karamazov', id: 450911, rented: 55 },
@@ -8,7 +8,7 @@ const books = [
     { title: 'Et on tuera tous les affreux', id: 67565, rented: 36 },
     { title: 'Le meilleur des mondes', id: 88847, rented: 58 },
     { title: 'La disparition', id: 364445, rented: 33 },
-    { title: 'La lune seule le sait', id: 63541, rented: 43 },
+    { title: 'La lune seule le sait', id: 63541, rented: 9 },
     { title: 'Voyage au centre de la Terre', id: 4656388, rented: 38 },
     { title: 'Guerre et Paix', id: 748147, rented: 19 }
 ];
@@ -16,32 +16,64 @@ const books = [
 
 // Est-ce que tous les livres ont été au moins empruntés une fois ?
 function untouchedBookDetector(booksList){
-    booksList.forEach(book => {
-        console.log(book.rented);
+    let output = false;
+    booksList.every(book => {
         if (book.rented == 0){
-            // console.log("oui");
-            return true;
-        }
-        else{
-            // console.log("non");
-            return false;
+            return output = true
         }
     })
+    return output;
 };
 
-let result = untouchedBookDetector(books);
-console.log(result);
+let result = untouchedBookDetector(books)
+console.log(result)
+
+
 
 
 
 // Quel est livre le plus emprunté ?
+function mostRentedBook(booklist){
+    let orderedList = 
+    booklist.sort(function (a, b) {
+        return a.rented - b.rented
+    });
+
+    return orderedList.pop()
+}
+
+let result2 = mostRentedBook(books)
+console.log(result2);
+
+
+
 
 
 // Quel est le livre le moins emprunté ?
+function leastRentedBook(booklist){
+    let orderedList = 
+    booklist.sort(function (a, b) {
+        return a.rented - b.rented
+    });
+
+    return orderedList[0]
+}
+
+let result3 = leastRentedBook(books)
+console.log(result3)
+
+
+
 
 
 // Trouve le livre avec l'ID: 873495 ;
+function findBookWithID(bookList, ID){
+    let output = bookList.find( book => book.id == ID);
+    return output
+}
 
+let result4 = findBookWithID(books, 873495)
+console.log(result4)
 
 // Supprime le livre avec l'ID: 133712 ;
 
