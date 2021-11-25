@@ -30,6 +30,8 @@ function acne(string){
 // console.log(acne("")) // "t'es en PLS ?"
 // console.log(acne("je suis une poule")) // "balek."
 
-let input = prompt("Dis quelque chos à cet ado");
 
-console.log(acne(input))
+while (true) {
+    let input = prompt("Dis quelque chos à cet ado");
+    console.log(acne(input))
+}
